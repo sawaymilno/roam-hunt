@@ -1,6 +1,11 @@
 <template>
-  <li class="list-group-item media" @click="onHuntSelect(hunt)">
+  <li
+    class="list-group-item d-flex justify-content-between align-items-center"
+    @click="onHuntSelect(hunt)"
+  >
     <div>{{hunt.city}}</div>
+    <span class="badge">{{`${hunt.star_rating} Stars`}}</span>
+
     <!-- <img class="mr-3" :src="thumbnailUrl"> -->
     <!-- <div class="media-body">{{video.snippet.title}}</div> -->
   </li>
