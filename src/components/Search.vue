@@ -10,9 +10,6 @@ export default {
   name: "SearchBar",
   computed: mapGetters(["allHunts"]),
   methods: mapActions(["fetchHunts"])
-  // created() {
-  //   this.fetchHunts();
-  // }
 };
 </script>
 

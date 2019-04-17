@@ -20,7 +20,8 @@ const getters = {
 
 const mutations = {
   setHunts: (state, hunts) => state.hunts = hunts,
-  setSelectedHunt: (state, selectedHunt) => state.selectedHunt = selectedHunt
+  setSelectedHunt: (state, selectedHunt) => state.selectedHunt = selectedHunt,
+  setFilteredHunts: (state, filteredHunts) => state.filteredHunts = filteredHunts
 };
 
 const actions = {
@@ -33,6 +34,7 @@ const actions = {
     console.log(data);
 
     commit('setHunts', response.data)
+    commit('setFilteredHunts', response.data)
   },
   onHuntSelect({
     commit

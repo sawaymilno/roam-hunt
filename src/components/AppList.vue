@@ -1,12 +1,11 @@
 <template>
-  <div>
-    <div v-if="isSearchCompleted.length > 0" class="row">
-      <!-- <img v-for="image in allImages" :src="image.link" :key="image.link"> -->
-      <HuntList></HuntList>
-      <HuntDetail/>
-    </div>
-    <h2 v-else>Please Do A Search</h2>
+  <!-- <div class="outer"> -->
+  <div v-if="isSearchCompleted.length > 0" class="outer">
+    <HuntList></HuntList>
+    <HuntDetail class="box"></HuntDetail>
   </div>
+  <h2 v-else>Please Do A Search</h2>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -24,12 +23,17 @@ export default {
 </script>
 
 <style scoped>
-/* .container {
-  column-count: 3;
-  column-gap: 0;
+.box {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 00px;
+  margin: 0 0 0 33vw;
+}
+.outer {
+  justify-content: space-between;
 }
 
-img {
+/* img {
   max-width: 100%;
   padding: 5px;
 } */

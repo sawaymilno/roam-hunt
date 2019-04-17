@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <div class="container">
+    <div class="list">
       <router-view></router-view>
     </div>
   </div>
@@ -15,9 +15,16 @@ export default {
   components: {
     Header
   },
-  methods: mapActions(["fetchHunts"])
-  // created() {
-  //   this.fetchHunts();
-  // }
+  methods: mapActions(["fetchHunts"]), //initiate created once app is complete
+  created() {
+    this.fetchHunts();
+  }
 };
 </script>
+
+<style scoped>
+.list {
+  margin: 0 25px 0 25px;
+  justify-content: space-between;
+}
+</style>
