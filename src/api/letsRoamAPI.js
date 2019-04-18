@@ -6,15 +6,23 @@ const subscribePost = 'https://www.letsroam.com/api/v1/newsletter/subscribe_no_d
 
 export default {
   fetchHunts() {
-    return axios.get(letsRoamURL)
+    return axios.get(letsRoamURL, {
+      // headers: {
+      //   Authorization:
+      // }
+    })
   },
-  subscribePost(email, first_name, last_name) {
-    console.log(email, first_name, last_name);
+  subscribePost(userEmail, userFirst_name, userLast_name) {
 
     return axios.post(subscribePost, {
-      email,
-      first_name,
-      last_name
+      headers: {
+        'Access-Control-Allow-Origin': 'http://localhost:8080'
+      },
+      params: {
+        email: userEmail,
+        first_name: userFirst_name,
+        last_name: userLast_name
+      }
     })
   }
 };

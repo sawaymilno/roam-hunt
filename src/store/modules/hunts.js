@@ -9,6 +9,7 @@ import {
 } from '../../main';
 const getDefaultState = () => {
   return {
+    showModal: false,
     first_name: "",
     last_name: "",
     email: "",
@@ -32,6 +33,7 @@ const getDefaultState = () => {
 const state = getDefaultState()
 
 const getters = {
+  showModal: state => state.showModal,
   allHunts: state => state.hunts,
   isSearchCompleted: state => state.filteredHunts,
   selectedHunt: state => state.selectedHunt,
@@ -39,6 +41,7 @@ const getters = {
 };
 
 const mutations = {
+  setModal: (state, value) => state.showModal = value,
   setFirstName: (state, value) => state.first_name = value,
   setLastName: (state, value) => state.last_name = value,
   setEmail: (state, value) => state.email = value,
@@ -76,6 +79,11 @@ const actions = {
   }, hunt) {
 
     commit('setSelectedHunt', hunt)
+  },
+  onToggleModal({
+    commit
+  }) {
+    commit('setModal', !state.showModal)
   },
   onFirst({
     commit
@@ -166,16 +174,22 @@ const actions = {
     commit('setFilteredHunts', filteredHunts)
     router.push('/listview')
   },
-  async onSubscribe() {
+  async onSubscribe({
+    commit
+  }) {
     console.log('insubscribe');
     // const subscriptionData = {
     //   email: state.email,
     //   first_name: state.first_name,
     //   last_name: state.last_name
     // }
-    // const subResponse = 
-    await api.subscribePost(state.email, state.first_name, state.last_name)
-    // console.log(subResponse);
+    commit('setModal', !state.showModal)
+    commit('setEmail', "")
+    commit('setFirstName', '')
+    commit('setLastName', '')
+    console.log('first,last,email', state.first_name, state.last_name, state.email)
+    const subResponse = await api.subscribePost(state.email, state.first_name, state.last_name)
+    console.log(subResponse);
 
   }
 };
