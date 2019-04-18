@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <header>
     <nav class="navbar navbar-expand-lg navbar-light">
       <router-link class="navbar-brand" to="/">
         <img
@@ -17,7 +17,7 @@
       </div>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <router-link class="nav-link" to="/">
+          <router-link @click.native="onReset" class="nav-link" to="/">
             <p class="nav-link-content">Search</p>
           </router-link>
         </li>
@@ -34,14 +34,17 @@
       </ul>
     </nav>
     <div class="subheader">
-      <p>Hello! This is how you center your text</p>
+      <h3>Search For Art, Culture, History & Adventure!</h3>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
-  name: "AppHeader"
+  name: "AppHeader",
+  methods: mapActions(["onReset"])
 };
 </script>
 
@@ -72,6 +75,11 @@ export default {
 }
 .nav-item {
   margin: 0 50px 0 50px;
+}
+h3 {
+  margin: 20px 0 25px;
+  color: #e87722;
+  font-family: sans-serif;
 }
 p {
   margin: 10px 0;

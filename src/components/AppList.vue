@@ -1,11 +1,9 @@
 <template>
-  <!-- <div class="outer"> -->
   <div v-if="isSearchCompleted.length > 0" class="outer">
     <HuntList></HuntList>
     <HuntDetail class="box"></HuntDetail>
   </div>
-  <h2 v-else>Please Do A Search</h2>
-  <!-- </div> -->
+  <h2 v-else>Zero Results Please Visit The Search Page</h2>
 </template>
 
 <script>
@@ -23,6 +21,9 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+  margin: 36vh 30vw;
+}
 .box {
   position: -webkit-sticky;
   position: sticky;
@@ -32,9 +33,4 @@ export default {
 .outer {
   justify-content: space-between;
 }
-
-/* img {
-  max-width: 100%;
-  padding: 5px;
-} */
 </style>

@@ -86,10 +86,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="row lower">
-        <div>Starting Location</div>
-        <div>{{selectedHunt.starting_location}}</div>
-      </div>-->
     </div>
   </div>
 </template>
@@ -104,11 +100,6 @@ export default {
 </script>
 
 <style scoped>
-/* .huntDetail {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 20px;
-} */
 .badge-even {
   color: white;
   background-color: #6aaeaa;
