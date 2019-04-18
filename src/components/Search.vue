@@ -1,7 +1,4 @@
 <template>
-  <!-- <div>
-    <input @input="fetchHunts">
-  <div class="list-group-item media outer">-->
   <form>
     <div class="row">
       <div class="col-sm">

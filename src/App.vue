@@ -22,7 +22,7 @@ export default {
     BottomNav
   },
   computed: mapGetters(["showModal"]),
-  methods: mapActions(["fetchHunts"]), //initiate created once app is complete
+  methods: mapActions(["fetchHunts"]),
   created() {
     this.fetchHunts();
   }
@@ -34,8 +34,4 @@ export default {
   margin: 0 25px 70px 25px;
   justify-content: space-between;
 }
-/* .layout { */
-/* justify-content: space-between; */
-/* align-items: center; */
-/* } */
 </style>

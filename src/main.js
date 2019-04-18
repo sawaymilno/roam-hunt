@@ -4,7 +4,6 @@ import App from './App';
 import Search from './components/Search';
 import AppList from './components/AppList';
 import MapView from './components/MapView';
-import SoloHunt from './components/SoloHunt';
 import store from './store';
 
 Vue.use(VueRouter);
@@ -22,10 +21,6 @@ export const router = new VueRouter({
     {
       path: '/listview',
       component: AppList
-    },
-    {
-      path: `/solohunt`,
-      component: SoloHunt
     }
   ]
 })

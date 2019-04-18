@@ -178,11 +178,6 @@ const actions = {
     commit
   }) {
     console.log('insubscribe');
-    // const subscriptionData = {
-    //   email: state.email,
-    //   first_name: state.first_name,
-    //   last_name: state.last_name
-    // }
     commit('setModal', !state.showModal)
     commit('setEmail', "")
     commit('setFirstName', '')
