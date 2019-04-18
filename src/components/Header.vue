@@ -33,8 +33,37 @@
         </li>
       </ul>
     </nav>
-    <div class="subheader">
-      <h3>Search For Art, Culture, History & Adventure!</h3>
+    <div class="container subscription">
+      <h3>For More Details, Updates & A Free Prize, Please Subscribe To Our Newsletter</h3>
+      <form>
+        <div class="form-row">
+          <div class="col-5">
+            <input
+              @input="onEmail($event.target.value)"
+              type="email"
+              class="form-control"
+              placeholder="Email"
+            >
+          </div>
+          <div class="col">
+            <input
+              @input="onFirst($event.target.value)"
+              type="text"
+              class="form-control"
+              placeholder="First Name"
+            >
+          </div>
+          <div class="col">
+            <input
+              @input="onLast($event.target.value)"
+              type="text"
+              class="form-control"
+              placeholder="Last Name"
+            >
+          </div>
+        </div>
+        <button @click.prevent="onSubscribe" class="btn">Subscribe</button>
+      </form>
     </div>
   </header>
 </template>
@@ -44,16 +73,31 @@ import { mapActions } from "vuex";
 
 export default {
   name: "AppHeader",
-  methods: mapActions(["onReset"])
+  methods: mapActions([
+    "onReset",
+    "onFirst",
+    "onLast",
+    "onEmail",
+    "onSubscribe"
+  ])
 };
 </script>
 
 <style scoped>
+header {
+  padding: 0 0 3vh;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+button {
+  width: 150px;
+  background-color: #6aaeaa;
+  margin: 2vh 0 0 0;
+}
 .navbar {
   justify-content: space-between;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07);
 }
-.subheader {
+.subscription {
   text-align: center;
 }
 .header-logo {
@@ -78,7 +122,7 @@ export default {
 }
 h3 {
   margin: 20px 0 25px;
-  color: #e87722;
+  color: #6aaeaa;
   font-family: sans-serif;
 }
 p {
@@ -88,9 +132,6 @@ p {
 }
 p:hover {
   text-decoration: underline;
-}
-.sub-header {
-  justify-content: space-between;
 }
 </style>
 

@@ -9,6 +9,9 @@ import {
 } from '../../main';
 const getDefaultState = () => {
   return {
+    first_name: "",
+    last_name: "",
+    email: "",
     minArtValue: '0',
     minCultureValue: '0',
     minDifficultyValue: '0',
@@ -36,6 +39,9 @@ const getters = {
 };
 
 const mutations = {
+  setFirstName: (state, value) => state.first_name = value,
+  setLastName: (state, value) => state.last_name = value,
+  setEmail: (state, value) => state.email = value,
   setHunts: (state, hunts) => state.hunts = hunts,
   setSelectedHunt: (state, selectedHunt) => state.selectedHunt = selectedHunt,
   setFilteredHunts: (state, filteredHunts) => state.filteredHunts = filteredHunts,
@@ -70,6 +76,25 @@ const actions = {
   }, hunt) {
 
     commit('setSelectedHunt', hunt)
+  },
+  onFirst({
+    commit
+  }, value) {
+    commit('setFirstName', value)
+    console.log(state.first_name)
+  },
+  onLast({
+    commit
+  }, value) {
+    commit('setLastName', value)
+    console.log(state.last_name)
+  },
+  onEmail({
+    commit
+  }, value) {
+    commit('setEmail', value)
+    console.log(state.email);
+
   },
   onArt({
     commit
@@ -140,6 +165,18 @@ const actions = {
     const filteredHunts = buildFilteredList(state)
     commit('setFilteredHunts', filteredHunts)
     router.push('/listview')
+  },
+  async onSubscribe() {
+    console.log('insubscribe');
+    // const subscriptionData = {
+    //   email: state.email,
+    //   first_name: state.first_name,
+    //   last_name: state.last_name
+    // }
+    // const subResponse = 
+    await api.subscribePost(state.email, state.first_name, state.last_name)
+    // console.log(subResponse);
+
   }
 };
 
